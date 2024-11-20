@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import BackgroundLogin from '../../assets/background.svg'
+import BackgroundLogin from '../../assets/background.svg';
+import { Link as ReactLink } from "react-router-dom";
 
 export const Container = styled.div `
     display: flex;
@@ -99,4 +100,9 @@ export const InputContainer = styled.div `
         height: 10px;
     }
 
+`;
+
+export const Link = styled(ReactLink)`
+    text-decoration: none;
+    color: #fff;
 `;
