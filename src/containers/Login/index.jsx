@@ -3,30 +3,30 @@ import { useNavigate } from "react-router-dom";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { api } from '../../services/api';
 import { toast } from "react-toastify";
+import { useUser } from "../../hooks/UserContext";
 import * as yup from "yup";
 
 import { Container, Form, InputContainer, LeftContainer, RightContainer, Title, Link, } from './styles';
 import Logo from '../../assets/logo.svg';
 
 
-import { Button } from '../../components/button'
+import { Button } from '../../components/Button';
 
 export function Login() {
   const navigate = useNavigate();
+  const { putUserData } = useUser();
 
   const schema = yup.object({
     email: yup.string().email('Digite um e-mail válido').required('O e-mail é obrigatório'),
-    password: yup.string().min(6, 'deve conter no mínimo 6 caracteres').required(),
+    password: yup.string().min(6, 'Senha deve conter no mínimo 6 caracteres').required(),
   }).required();
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
 
-  console.log(errors)
-
   const onSubmit = async (data) => {
-    const { data: { token }, } = await toast.promise(
+    const { data: userData } = await toast.promise(
       api.post('/session', {
         email: data.email,
         password: data.password,
@@ -44,8 +44,7 @@ export function Login() {
         error: 'Email ou Senha Incorretos',
       },
     );
-
-    localStorage.setItem('token', token);
+    putUserData(userData);
   };
 
   return (

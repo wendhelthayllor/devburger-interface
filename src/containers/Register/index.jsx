@@ -9,7 +9,7 @@ import { Container, Form, InputContainer, LeftContainer, RightContainer, Title, 
 import Logo from '../../assets/logo.svg';
 
 
-import { Button } from '../../components/button'
+import { Button } from '../../components/Button';
 
 export function Register() {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export function Register() {
       .required('O e-mail é obrigatório'),
     password: yup
       .string()
-      .min(6, 'deve conter no mínimo 6 caracteres')
+      .min(6, 'Senha deve conter no mínimo 6 caracteres')
       .required(),
     confirmPassword: yup
       .string()

@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    position: relative;
     align-items: center;
     gap: 40px;
     padding: 20px;
     border-radius: 8px;
     background-color: #ffff;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
     div {
         width: 100%;

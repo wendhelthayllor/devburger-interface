@@ -1,8 +1,8 @@
-import { CategoriesCarousel } from "../../components/CategoriesCarousel";
-import { OffersCarousel } from "../../components/OffersCarousel";
+import { OffersCarousel, CategoriesCarousel } from "../../components";
 import { Banner, Container } from "./styles";
 
 export function Home() {
+  
   return (
     <main>
       <Banner>
@@ -15,8 +15,7 @@ export function Home() {
           <OffersCarousel />
         </div>
       </Container>
-
-
     </main>
-  )
+  );
 }
+
