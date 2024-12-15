@@ -53,7 +53,7 @@ export const Button = styled.button`
     margin: 30px 0 10px 0;
     border: 0;
     border-radius: 25px;
-    background-color: #9758a6;
+    background-color:  ${(props) => props.theme.purple};
     font-family: "Road Rage", serif;
     font-size: 30px;
     color: #FFF;
@@ -84,14 +84,14 @@ export const CategoryButton = styled(Link)`
   text-decoration: none;
   background: none;
   padding: 10px;
-  color: ${props => props.$isActiveCategory ? '#9758a6' : '#696969'};
+  color: ${props => props.$isActiveCategory ? (props) => props.theme.purple : '#696969'};
   font-size: 24px;
   font-weight: 600;
   padding-bottom: 5px;
   line-height: 20px;
   
   border: none;
-  border-bottom: ${props => props.$isActiveCategory && '3px solid #9758a6'};
+  border-bottom: ${props => props.$isActiveCategory && `3px solid   ${(props) => props.theme.purple}`};
 `;
 
 export const ProductsContainer = styled.div`
